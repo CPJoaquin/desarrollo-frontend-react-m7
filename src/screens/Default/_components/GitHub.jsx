@@ -3,7 +3,7 @@ const Content = () => {
         <div>
             <a
                 className="App-link"
-                href="https://github.com/dheeyi/desarrollo-frontend-react"
+                href="https://github.com/CPJoaquin/desarrollo-frontend-react-m7"
                 target="_blank"
                 rel="noopener noreferrer"
             >

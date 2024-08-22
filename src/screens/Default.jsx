@@ -16,7 +16,7 @@ const Default = () => {
                 />
                 <OpenLink
                     title="Mi proyecto react (Github)"
-                    url="https://github.com/dheeyi/desarrollo-frontend-react"
+                    url="https://github.com/CPJoaquin/desarrollo-frontend-react-m7"
                 />
             </header>
         </>
