@@ -4,10 +4,12 @@ import {saveFormData} from "../../redux/form/formActions";
 import {motion} from "framer-motion";
 import ModalInfo from "../../components/ModalInfo";
 import { useState } from "react";
+import ModalLogout from "../../components/ModalLogout";
 
 const LoginForm = () => {
-    const [values, handleChange] = useForm({ username: '', email: '', password: ''});
+    const [values, handleChange, resetForm] = useForm({ username: '', email: '', password: ''});
     const[showModalinfo,setShowModalInfo] = useState(false)
+    const[showModalLogout,setShowModalLogout] = useState(false)
     const form = useSelector(state => state.form);
     const dispatch = useDispatch();
     const secret = form.password;
@@ -28,6 +30,17 @@ const LoginForm = () => {
     const hideModalInfo = () => {
         setShowModalInfo(false);
     }
+    const showLogoutModal = () => {
+        setShowModalLogout(true);
+    }
+    const closeLogoutModal = () => {
+        setShowModalLogout(false);
+    }
+    const logout = () => {
+        resetForm();
+        dispatch(saveFormData({ username: '', email: '', password: ''}));
+        setShowModalLogout(false);
+    }
 
     return (
         
@@ -38,6 +51,7 @@ const LoginForm = () => {
             >
         <div className="container">
             <ModalInfo visible={showModalinfo} message="Password incorrecto" onClose={hideModalInfo}/>
+            <ModalLogout visible={showModalLogout} onClose={closeLogoutModal} onLogout={logout}/>
             <form onSubmit={handleSubmit}>
                 <h5>username: {form.formData.username}</h5>
                 <h5>email: {form.formData.email}</h5>
@@ -73,7 +87,8 @@ const LoginForm = () => {
                     <button type="button" onClick={viewPasswordText}>{showPassword ? 'ocultar' : 'ver'}</button>
                 </div>
                 <div className="button-container">
-                <button type="submit">Submit</button>
+                    <button type="submit">Submit</button>
+                    <a href="#" onClick={showLogoutModal}>Logout</a>
                 </div>
             </form>
         </div>

@@ -150,3 +150,12 @@ form div input {
   font-size: 1.5rem;
   cursor: pointer;
 }
+.button-container a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.button-container a:hover {
+  color: #6dc0e9;
+}
