@@ -11,7 +11,11 @@ const LoginForm = () => {
     const form = useSelector(state => state.form);
     const dispatch = useDispatch();
     const secret = form.password;
-    
+    const [showPassword, setShowPassword] = useState(false);
+    const viewPasswordText  = () => {
+        let passwordTextStatus = showPassword ? false : true;
+        setShowPassword(passwordTextStatus);
+      };
     const handleSubmit = (event) => {
         event.preventDefault();
         if(values.password == secret){
@@ -60,12 +64,13 @@ const LoginForm = () => {
                 <div>
                     <label htmlFor="password">Password</label>
                     <input
-                        type="password"
+                        type={showPassword ? 'text' : 'password'}
                         id="password"
                         name="password"
                         value={values.password}
                         onChange={handleChange}
                     />
+                    <button type="button" onClick={viewPasswordText}>{showPassword ? 'ocultar' : 'ver'}</button>
                 </div>
                 <div className="button-container">
                 <button type="submit">Submit</button>
