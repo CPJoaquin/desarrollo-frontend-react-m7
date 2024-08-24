@@ -10,12 +10,16 @@ const LoginForm = () => {
     const[showModalinfo,setShowModalInfo] = useState(false)
     const form = useSelector(state => state.form);
     const dispatch = useDispatch();
-
+    const secret = form.password;
+    
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(values);
-        dispatch(saveFormData(values));
-        setShowModalInfo(true);
+        if(values.password == secret){
+            dispatch(saveFormData(values));
+        }
+        else{
+            setShowModalInfo(true);
+        }
     }
     const hideModalInfo = () => {
         setShowModalInfo(false);
@@ -29,7 +33,7 @@ const LoginForm = () => {
                 transition={{duration: 1}}
             >
         <div className="container">
-            <ModalInfo visible={showModalinfo} message="Buenvenidos a m7" onClose={hideModalInfo}/>
+            <ModalInfo visible={showModalinfo} message="Password incorrecto" onClose={hideModalInfo}/>
             <form onSubmit={handleSubmit}>
                 <h5>username: {form.formData.username}</h5>
                 <h5>email: {form.formData.email}</h5>
