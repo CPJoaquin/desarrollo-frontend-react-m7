@@ -159,3 +159,33 @@ form div input {
 .button-container a:hover {
   color: #6dc0e9;
 }
+.landing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-inline: 20%;
+  display: block;
+}
+.landing-page-header{
+  color: white;
+  background-color: green;
+  padding: 5%;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.landing-subtitle{
+  font-size: 1.5rem;
+  border-bottom: 1px solid green;
+  width: 100%;
+  font-weight: bold;
+}
+.landing-text{
+  font-size: 1.3rem;
+}
+.landing-table tr td{
+  padding: 3%;
+  vertical-align: top;
+}
